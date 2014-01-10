@@ -1,0 +1,43 @@
+doctype html
+//-|<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><![endif]-->
+//-|<!--[if IE 7]><html class="lt-ie9 lt-ie8" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><![endif]-->
+//-|<!--[if IE 8]> <html class="no-js lt-ie9" lang="en" > <![endif]-->
+//-|<!--[if gt IE 8]> <!--> <html class="no-js" lang="en" > <!--<![endif]-->
+html(ng-app="myApp")
+	head
+		title #{title}
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width")
+		meta(name="keywords", content='#{keywords}')
+		meta(name="description", content='#{description}')
+
+		meta(property="og:url", content="http://www.mysite.com/")
+		meta(property="og:type", content="website")
+		meta(property="og:title", content="Jona Rodrigues")
+		meta(property="og:image", content="http://www.mysite.com/img/my_facebook_img.png")
+		meta(property="og:description", content="My web site description.")
+		meta(HTTP-EQUIV="Expires", content="never")
+		meta(name="Language", content="English")
+		meta(name="Copyright", content="Jona Rodrigues")
+		meta(name="Designer", content="Jona Rodrigues")
+		meta(name="Publisher", content="Jona Rodrigues")
+		meta(name="distribution", content="Global")
+		meta(name="zipcode", content="75008")
+		meta(name="city", content="Paris")
+		meta(name="country", content="France")
+
+		link(rel='stylesheet', href='App/stylesheets/all-min.css')
+		
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+		script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js")
+		script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.min.js")
+
+		script(src="App/javascript/all-min.js")
+		
+		block controller
+
+	body
+		include ./mixins/article
+
+		block content
+	
