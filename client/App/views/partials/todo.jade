@@ -1,0 +1,21 @@
+h1 Todo
+
+div(ng-if="isLogged")
+	.container
+		.jumbotron.text-center
+			h2 I am a Todo-aholic
+				span.label.label-info {{ todos.length }}
+
+		#todo-list.row
+			.col-sm-4.col-sm-offset-4
+					div(ng-repeat="todo in todos").checkbox
+						label
+							input(type="checkbox", ng-click="deleteTodo(todo._id)")
+							{{todo}}
+
+		#todo-form.row
+			.col-sm-8.col-sm-offset-2.text-center
+				form
+					.form-group
+						input(type="text", placeholder="What should you do", ng-model="formData.text")#newTodo.form-control.input-lg.text-center
+					button(type="submit", class="btn btn-primary btn-lg", ng-click="createTodo()") Add
