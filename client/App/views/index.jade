@@ -1,0 +1,49 @@
+extends assets-complete
+block controller
+	script(src='/socket.io/socket.io.js')
+	script(src='App/javascript/app.js')
+	script(src='App/javascript/services.js')
+	script(src='App/javascript/controller.js')
+	script(src='App/javascript/filters.js')
+	script(src='App/javascript/directives.js')
+
+block content
+
+	header
+		nav(role="navigation").navbar.navbar-inverse.navbar-fixed-top
+			.container
+				.navbar-header
+					button(type="button", data-toggle="collapse", data-target=".navbar-collapse").navbar-toggle.collapsed
+						span.sr-only Toggle Navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a(href="/").navbar-brand Framework
+				.navbar-collapse.collapse
+					ul(ng-if="isLogged").nav.navbar-nav
+						li
+							a(href="/todo") My Todo
+					ul(ng-if="isLogged")#user-nav.nav.navbar-nav.navbar-right
+						li.dropdown
+							a(href="#", data-toggle="dropdown").dropdown-toggle  Hello {{username}}
+								b.caret
+							ul.dropdown-menu
+								li: a(href="/", ng-click="logout()"): i.fa.fa-power-off  Log Out
+					form(role="form", ng-if="!isLogged")#login-form.navbar-form.navbar-right.form-inline
+						.form-group
+							input(type='text', name='username', placeholder='Username', ng-model="$root.username").form-control
+						.form-group
+							input(type='password', name='password', placeholder='Password', ng-model="$root.password").form-control
+						button(ng-click="login()", class="btn btn-primary", type="submit")
+							i.fa.fa-lock
+							
+	br
+	#logMessage.row.hide
+		.col-md-offset-4.col-md-4.alert.alert-danger.alert-dismissable
+			button(type="button", data-dismiss="alert", aria-hidden="true").close &times;
+			strong: i.fa.fa-warning  {{loginMessage}}
+		
+	div(ng-view)#ng-view.row.container
+
+	footer.text-center
+			p This is my footer!
