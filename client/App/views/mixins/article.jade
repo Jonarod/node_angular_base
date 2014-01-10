@@ -1,0 +1,12 @@
+mixin article(h1, img, description, body, author, tags, date)
+	header
+		h1 #{h1}
+		img(src='#{img}')
+		p.article-description #{description}
+	section
+		p.article-body #{body}
+	footer
+		ul
+			li.article-author Author : #{author}
+			li.article-tags Tags : #{tags}
+			li.article-date Date : #{date}
